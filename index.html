@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<head>
+
+	
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<title> BOOK and Article Library</title>
+</head>
+<body>
+<div class="container">
+	<!-- MODALS START -->
+	<!-- Modal for submit Book-->
+	<div class="modal" tabindex="-1" role="dialog" id="addBook">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Add Book</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					</div>
+				<div class="modal-body">
+					<form id="formBook">
+						<div class="form-group">
+							<label for="nameBook">Book Name</label>
+							<input type="text" class="form-control" id="nameBook" placeholder="Book Name">
+						</div>
+						<div class="form-group">
+						  <label for="authorBook">Author</label>
+						  <input type="text" class="form-control" id="authorBook" placeholder="Author">
+						</div>
+						  <div class="form-group">
+							  <label for="authorBook">Description</label>
+							  <input type="text" class="form-control" id="descriptionBook" placeholder="Description">
+						  </div>
+						  <div class="form-check">
+							  <p><b>Status</b></p>
+							  <div class="radio" id="statusBook">
+								  <label class="radio-inline">
+									  <input type="radio" name="statusBook" id="readBook" value="Read">Read
+								  </label>
+								  <label class="radio-inline">
+									  <input type="radio" name="statusBook" id="unreadBook" value="Unread">Unread
+								  </label>
+							  </div>
+						  </div>
+						  <div>
+							  <button type="submit" class="btn btn-primary" id="saveBook" data-dismiss="modal">Save Book</button>
+						  </div>
+					  </form>
+				</div>
+				<div class="modal-footer">
+					<!--<button type="button" class="btn btn-primary">Save changes</button>-->
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+				</div>
+			</div>
+	</div><!--END MODAL FOR ARTICLE-->
+		<!-- Modal for submit Article-->
+	<div class="modal" tabindex="-1" role="dialog" id="addArticle">
+	  	<div class="modal-dialog" role="document">
+			<div class="modal-content">
+		  		<div class="modal-header">
+					<h3 class="modal-title">Add Article</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  			<span aria-hidden="true">&times;</span>
+					</button>
+		  </div>
+		  <div class="modal-body">
+			  <form id="formArticle">
+				  <div class="form-group">
+					  <label for="nameArticle">Article Name</label>
+					  <input type="text" class="form-control" id="nameArticle" placeholder="Article Name">
+				  </div>
+				  <div class="form-group">
+					  <label for="authorArticle">Author</label>
+					  <input type="text" class="form-control" id="authorArticle" placeholder="Author">
+				  </div>
+				  <div class="form-group">
+					  <label for="descriptionArticle">Description</label>
+					  <input type="text" class="form-control" id="descriptionArticle" placeholder="Description">
+				  </div>
+				  <div class="form-group">
+					  <label for="linkArticle">Link</label>
+					  <input type="text" class="form-control" id="linkArticle" placeholder="Link">
+				  </div>
+
+				  <div class="form-check">
+					  <p><b>Status</b></p>
+					  <div class="radio" id="statusArticle">
+						  <label class="radio-inline">
+							  <input type="radio" name="statusArticle" id="readArticle" value="Read">Read
+						  </label>
+						  <label class="radio-inline">
+							  <input type="radio" name="statusArticle" id="unreadArticle" value="Unread">Unread
+						  </label>
+
+					  </div>
+				  </div>
+				  <div>
+					  <button type="submit" class="btn btn-primary" id="saveArticle" data-dismiss="modal">Save Article</button>
+				  </div>
+			  </form>
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  		</div>
+			</div>
+			<div class="row col-md-12" >
+			<h3 style="padding: 25px">Books and Articles Library</h3>
+			<hr>
+
+			</div>
+<!-- END MODALS-->
+	<div class="row">
+		<!-- SIDE MENU START-->
+		<div class="menu col-md-2" id="menu">
+			<h4>Library</h4>
+			<div class="btn-group addNewBookArticle" role="group" aria-label="Basic example">
+				<button type="button" class="btn btn-default btn-sm" id="book" data-toggle="modal" data-target="#addBook">Add Book</button>
+				<button type="button" class="btn btn-info btn-sm" id="article" data-toggle="modal" data-target="#addArticle">Add Article</button>
+				<hr>
+			</div>
+			<div><!-- DISPLAY THE TITLES OF BOOS AND ARTICLES -->
+				<ul id="outputAz"></ul>
+			</div>
+
+		</div>
+		<div class="content col-md-10" id="content">
+			<div class="buttons">
+				<div class="row">
+					<!--<div class="btn-group viewBookArticle" role="group" aria-label="Basic example">-->
+					<button type="button" class="btn btn-primary" id="viewBooks">View Books</button>
+					<button type="button" class="btn btn-info" id="viewArticles">View Articles</button>
+				</div>
+			</div>
+
+			<div id="outputBooks" class="outputAll"></div>
+			<div id="outputArticles"></div>
+		</div>
+		<footer class="footer">
+			<div class="footer-copyright py-3 text-center">
+				<div class="container-fluid">
+					© 2018 Copyright: <p>Project Books and Articles Library</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+</div><!-- CONTAINER-->
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/store.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</body>
+</html>
